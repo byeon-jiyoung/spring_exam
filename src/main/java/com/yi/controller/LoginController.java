@@ -36,7 +36,7 @@ public class LoginController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value="join", method=RequestMethod.POST)
+	/*@RequestMapping(value="join", method=RequestMethod.POST)
 	public String joinPut(String userid) throws Exception {
 		logger.info("-------------- join PUT --------------" + userid);
 		
@@ -52,5 +52,5 @@ public class LoginController {
 		}
 		
 		return duplication;
-	}
+	}*/
 }

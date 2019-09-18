@@ -15,22 +15,32 @@
 	}
 	form {
 		margin: 20px auto;
-		width: 500px;
+		width: 700px;
 	}
 	form > div {
 		margin-bottom: 5px;
 	}
 	form label {
-		width: 100px;
+		width: 150px;
 		float: left;
 	}
 	.reg, .error {
 		display: none;
 		color: red;
+		font-size: 0.8em;
+		margin-left: 150px;
 	}
-	button {
+	input[type="text"] {
+		padding: 10px;
+		border-radius: 5px;
+		border: 1px solid #aaa;
+	}
+	button, input[type="submit"] {
 		background-color: #4285f4;
 		border: #4285f4;
+		border-radius: 5px;
+		color: white;
+		padding: 5px;
 	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -65,37 +75,37 @@
 			
 			
 			if($("input[name='userid']").val() == "" || reg_id.test($("input[name='userid']").val()) == false) {
-			$("input[name='userid']").nextAll(".reg").css("display", "inline");
+			$("input[name='userid']").nextAll(".reg").css("display", "block");
 				return false;
 			}
 			
 			if($("input[name='userpw']").val() == "" || reg_pw.test($("input[name='userpw']").val()) == false) {
-				$("input[name='userpw']").nextAll(".reg").css("display", "inline");
+				$("input[name='userpw']").nextAll(".reg").css("display", "block");
 				return false;
 			}
 			
 			if($("input[name='userpwCheck']").val() == "") {
-				$("input[name='userpwCheck']").nextAll(".reg").css("display", "inline");
+				$("input[name='userpwCheck']").nextAll(".reg").css("display", "block");
 				return false;
 			}
 			
 			if($("input[name='userpw']").val() != $("input[name='userpwCheck']").val()) {
-				$("input[name='userpwCheck']").nextAll(".error").css("display", "inline");
+				$("input[name='userpwCheck']").nextAll(".error").css("display", "block");
 				return false;
 			}
 			
 			if($("input[name='username']").val() == "" || reg_name.test($("input[name='username']").val()) == false) {
-				$("input[name='username']").nextAll(".reg").css("display", "inline");
+				$("input[name='username']").nextAll(".reg").css("display", "block");
 				return false;
 			}
 			
 			if($("input[name='email']").val() == "" || reg_email.test($("input[name='email']").val()) == false) {
-				$("input[name='email']").nextAll(".reg").css("display", "inline");
+				$("input[name='email']").nextAll(".reg").css("display", "block");
 				return false;
 			}
 			
 			if($("input[name='tel']").val() == "" || reg_tel.test($("input[name='tel']").val()) == false) {
-				$("input[name='tel']").nextAll(".reg").css("display", "inline");
+				$("input[name='tel']").nextAll(".reg").css("display", "block");
 				return false;
 			}
 		})
