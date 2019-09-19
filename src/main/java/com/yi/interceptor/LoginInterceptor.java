@@ -39,7 +39,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 //										//프로젝트이름반환
 			response.sendRedirect(path);
 		}else {
-			response.sendRedirect(request.getContextPath() + "/auth/login");
+			response.sendRedirect(request.getContextPath() + "/login/login");
 		}
 	}
 	

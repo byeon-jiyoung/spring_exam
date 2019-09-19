@@ -67,12 +67,12 @@ public class BoardController {
 	public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		logger.info("-------- listPage ---------");
 		
-		List<BoardVO> list = service.listboard(cri);
+		/*List<BoardVO> list = service.listboard(cri);
 		model.addAttribute("list", list);
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listboardCount(cri));
-		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("pageMaker", pageMaker);*/
 	}
 }

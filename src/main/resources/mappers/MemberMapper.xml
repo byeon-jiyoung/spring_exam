@@ -11,4 +11,8 @@
 	<select id="selectMemberById" resultType="MemberVO">
 		select * from member where userid = #{userid}
 	</select>
+	
+	<select id="selectMemberByIdAndPw" resultType="MemberVO">
+		select * from tbl_member where userid = #{userid} and userpw = #{userpw};
+	</select>
 </mapper>

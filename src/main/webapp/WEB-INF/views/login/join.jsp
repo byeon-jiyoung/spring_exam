@@ -1,21 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
+<%@ include file="../include/header.jsp" %>
+
 <style>
-	header {
-		border-bottom: 1px solid #ccc;
-	}
-	header img {
-		width: 150px;
-		height: 40px;
-	}
 	form {
-		margin: 20px auto;
-		width: 700px;
+		margin: 50px auto;
+		width: 450px;
 	}
 	form > div {
 		margin-bottom: 5px;
@@ -23,6 +14,7 @@
 	form label {
 		width: 150px;
 		float: left;
+		line-height: 37px;
 	}
 	.reg, .error {
 		display: none;
@@ -30,7 +22,7 @@
 		font-size: 0.8em;
 		margin-left: 150px;
 	}
-	input[type="text"] {
+	input[type="text"], input[type="password"] {
 		padding: 10px;
 		border-radius: 5px;
 		border: 1px solid #aaa;
@@ -40,10 +32,17 @@
 		border: #4285f4;
 		border-radius: 5px;
 		color: white;
-		padding: 5px;
+		padding: 8px 15px;
+	}
+	#submit_btn {
+		margin-left: 150px;
+	}
+	input[type="submit"] {
+		padding: 10px 30px;
+		margin-top: 10px;
 	}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <script>
 	$(function() {
 		$("#idCheck").click(function(e) {
@@ -111,11 +110,7 @@
 		})
 	})
 </script>
-</head>
-<body>
-	<header>
-		<img alt="google" src="${pageContext.request.contextPath}/resources/images/google.png">
-	</header>
+
 	<section>
 		<form action="join" method="post" id="f1">
 			<div>
@@ -126,12 +121,12 @@
 			</div>
 			<div>
 				<label>비밀번호</label>
-				<input type="text" name="userpw">
+				<input type="password" name="userpw">
 				<span class="reg">8~20자리로 입력해 주세요</span>
 			</div>
 			<div>
 				<label>비밀번호확인</label>
-				<input type="text" name="userpwCheck">
+				<input type="password" name="userpwCheck">
 				<span class="reg">비밀번호와 일치하게 입력해 주세요</span>
 				<span class="error">비밀번호가 일치하지 않습니다</span>
 			</div>
@@ -150,10 +145,11 @@
 				<input type="text" name="tel">
 				<span class="reg">전화번호를 다시 입력하세요</span>
 			</div>
-			<div>
+			<div id="submit_btn">
 				<input type="submit" value="회원가입">
 			</div>
 		</form>
 	</section>
+	
 </body>
 </html>

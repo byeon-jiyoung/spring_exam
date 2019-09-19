@@ -21,4 +21,9 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO selectMemberById(String userid) throws Exception {
 		return dao.selectMemberById(userid);
 	}
+
+	@Override
+	public MemberVO selectMemberByIdAndPw(String userid, String userpw) throws Exception {
+		return dao.selectMemberByIdAndPw(userid, userpw);
+	}
 }

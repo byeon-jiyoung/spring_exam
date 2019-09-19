@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yi.domain.LoginDTO;
 import com.yi.domain.MemberVO;
 import com.yi.service.MemberService;
 
@@ -53,4 +54,27 @@ public class LoginController {
 		
 		return duplication;
 	}*/
+	
+	@RequestMapping(value="login", method=RequestMethod.GET)
+	public void loginGet() {
+		logger.info("-------------- login GET --------------");
+	}
+	
+	@RequestMapping(value="login", method=RequestMethod.POST)
+	public void loginPost(MemberVO vo, Model model) throws Exception {
+		logger.info("-------------- login POST --------------");
+		
+		MemberVO dbMember = service.selectMemberByIdAndPw(vo.getUserid(), vo.getUserpw()); //DB에서 받아오는 정보
+		
+		if(dbMember == null) {
+			logger.info("login POST ...... login fail, not member");
+			return;
+		}
+		
+		LoginDTO dto = new LoginDTO();
+		dto.setUserid(dbMember.getUserid());
+		dto.setUsername(dbMember.getUsername());
+		
+		model.addAttribute("loginDTO", dto);
+	}
 }
