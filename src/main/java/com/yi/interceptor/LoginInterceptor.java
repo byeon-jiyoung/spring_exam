@@ -38,7 +38,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 //			response.sendRedirect(request.getContextPath()); //home으로 이동하라
 //										//프로젝트이름반환
 			response.sendRedirect(path);
-		}else {
+		}else { //로그인 실패했을때
+			session.setAttribute("error", "notMatch");
 			response.sendRedirect(request.getContextPath() + "/login/login");
 		}
 	}

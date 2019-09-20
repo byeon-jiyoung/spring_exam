@@ -9,5 +9,7 @@ public interface BoardDao {
 	
 	public void insertBoard(BoardVO vo) throws Exception;
 	public List<BoardVO> listboard(Criteria cri) throws Exception;
-	public int listboardCount(Criteria cri) throws Exception;
+	public int listBoardCount(Criteria cri) throws Exception;
+	public BoardVO readBoard(int bno) throws Exception;
+	public void deleteBoard(int bno) throws Exception;
 }

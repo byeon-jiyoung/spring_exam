@@ -17,7 +17,6 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void insertBoard(BoardVO vo) throws Exception {
-		
 		dao.insertBoard(vo);
 	}
 
@@ -27,8 +26,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int listboardCount(Criteria cri) throws Exception {
-		return dao.listboardCount(cri);
+	public int listBoardCount(Criteria cri) throws Exception {
+		return dao.listBoardCount(cri);
+	}
+
+	@Override
+	public BoardVO readBoard(int bno) throws Exception {
+		return dao.readBoard(bno);
+	}
+
+	@Override
+	public void deleteBoard(int bno) throws Exception {
+		dao.deleteBoard(bno);
 	}
 
 }

@@ -40,7 +40,7 @@
 </style>
 
 	<section>
-		<form action="login" method="post">
+		<form action="loginPost" method="post">
 			<div>
 				<label>아이디</label>
 				<input type="text" name="userid">
@@ -54,6 +54,19 @@
 			</div>
 			<a href="${pageContext.request.contextPath}/login/join">※ 회원가입 하시겠습니까?</a>
 		</form>
+		
+		<c:if test="${error == 'notMatch'}">
+			<script>
+				setTimeout(function(){
+					alert("아이디와 비밀번호가 일치하지 않습니다.");
+				}, 100); 
+			</script>
+			<%
+				session.removeAttribute("error");
+			%> 
+		</c:if>
+   
 	</section>
+	
 </body>
 </html>

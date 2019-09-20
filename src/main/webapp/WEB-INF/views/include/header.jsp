@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,7 +10,7 @@
 	header {
 		border-bottom: 1px solid #ccc;
 		overflow: hidden;
-		padding: 0 20px;
+		padding: 10px 20px;
 	}
 	header > img {
 		width: 150px;
@@ -22,6 +23,13 @@
 		width: 30px;
 		margin-right: 10px;
 	}
+	#logintext {
+		margin-right: 10px;
+		font-size: 0.9em;
+	}
+	#username {
+		font-weight: bold;
+	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
@@ -29,15 +37,42 @@
 	<header>
 		<img alt="google" src="${pageContext.request.contextPath}/resources/images/google.png">
 		<div id="head_icon">
-			<img src="${pageContext.request.contextPath}/resources/images/user-login-person-512.png" id="login_img">
-			<img src="${pageContext.request.contextPath}/resources/images/plus-256.png">
-			<img src="${pageContext.request.contextPath}/resources/images/_square_menu_four-256.png">
-			<%-- <img src="${pageContext.request.contextPath}/resources/images/add_user-2-256.png"> --%>
+			<c:if test="${Auth != null}">
+				<span id="logintext">[<span id="username">${Auth.username}</span>]님 반갑습니다.</span>
+				<img src="${pageContext.request.contextPath}/resources/images/logout.png" id="logout_img">
+				<img src="${pageContext.request.contextPath}/resources/images/plus.png" id="board_register">
+				<img src="${pageContext.request.contextPath}/resources/images/menu.png" id="board_list">
+			</c:if>
+			<c:if test="${Auth == null}">
+				<img src="${pageContext.request.contextPath}/resources/images/login.png" id="login_img">
+				<%-- <img src="${pageContext.request.contextPath}/resources/images/plus.png" id="board_register">
+				<img src="${pageContext.request.contextPath}/resources/images/menu.png"> --%>
+			</c:if>
 		</div>
 	</header>
 	
 	<script>
+		$("header > img").click(function() {
+			location.href = "${pageContext.request.contextPath}/";
+		})
+	
 		$("#login_img").click(function() {
 			location.href = "${pageContext.request.contextPath}/login/login";
+		})
+		
+		$("#logout_img").click(function() {
+			var result = confirm("로그아웃 하시겠습니까?");
+			
+			if(result == true) {
+				location.href = "${pageContext.request.contextPath}/login/logout";
+			}
+		})
+		
+		$("#board_register").click(function() {
+			location.href = "${pageContext.request.contextPath}/board/register";
+		})
+		
+		$("#board_list").click(function() {
+			location.href = "${pageContext.request.contextPath}/board/list";
 		})
 	</script>

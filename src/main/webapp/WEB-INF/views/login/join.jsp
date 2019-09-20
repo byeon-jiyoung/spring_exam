@@ -44,6 +44,7 @@
 </style>
 
 <script>
+	var check = false;
 	$(function() {
 		$("#idCheck").click(function(e) {
 			e.preventDefault();
@@ -51,13 +52,20 @@
 			var id = $("input[name='userid']").val();
 
 			$.ajax({
-				url : "${pageContext.request.contextPath}/login/join",
+				url : "${pageContext.request.contextPath}/login/idcheck",
 				type : "post",
 				data : {"userid":id},
 				dataType: "text",
 				success : function(res) {
 					console.log(res);
 					
+					if(res == "yes") {
+						alert("이미 존재하는 아이디 입니다");
+						$("input[name='userid']").val("");
+					}else {
+						alert("사용가능한 아이디 입니다.");
+						check = true;
+					}
 				}
 			})
 		})
@@ -107,6 +115,13 @@
 				$("input[name='tel']").nextAll(".reg").css("display", "block");
 				return false;
 			}
+			
+			if(check == false) {
+				alert("아이디 중복체크를 해주세요.");
+				return false;
+			}
+			
+			alert("회원가입에 성공하였습니다. 로그인해주세요");
 		})
 	})
 </script>

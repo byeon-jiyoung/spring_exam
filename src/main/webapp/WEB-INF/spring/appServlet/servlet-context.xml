@@ -35,12 +35,17 @@
 	
 	<!-- interceptor를 위한 bean등록 => 로그인처리를 위한 작업. 스프링은 로그인을 위해서 인터셉터를 사용한다. -->
 	<beans:bean id="loginInterceptor" class="com.yi.interceptor.LoginInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" class="com.yi.interceptor.AuthInterceptor"></beans:bean>
 	
 	<interceptors>
 		<interceptor>
 			<mapping path="/login/loginPost"/> <!-- method를 걸 수 없다. 그래서 command를 다르게 해주는 방법밖에 없다 -->
 			<beans:ref bean="loginInterceptor"/>
 							<!-- id값이랑 동일하게 적어주면 됨 -->
+		</interceptor>
+		<interceptor>
+			<mapping path="/board/register"/>
+			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 	</interceptors>
 	

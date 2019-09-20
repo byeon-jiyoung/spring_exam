@@ -5,7 +5,7 @@
 <mapper namespace="com.yi.mapper.BoardMapper"> <!-- impl할거면 namespace 이름은 개발자 마음대로 하면 됨.근데 만약에 impl이 없으면 dao에 있는 패키지랑 파일이름이랑 동일하게 적어줘야 됨!!! -->
 	
 	<insert id="insertBoard">
-		insert into board(file) values (#{file})
+		insert into board(file, originfile, writer) values (#{file}, #{originfile}, #{writer})
 	</insert>
 	
 	<select id="listboard" resultType="BoardVO">
@@ -15,4 +15,12 @@
 	<select id="listBoardCount" resultType="int">
 		select count(bno) from board
 	</select>
+	
+	<select id="readBoard" resultType="BoardVO">
+		select * from board where bno = #{bno}
+	</select>
+	
+	<delete id="deleteBoard">
+		delete from board where bno = #{bno}
+	</delete>
 </mapper>
