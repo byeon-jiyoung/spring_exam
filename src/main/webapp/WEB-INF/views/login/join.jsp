@@ -5,7 +5,7 @@
 
 <style>
 	form {
-		margin: 50px auto;
+		margin: 80px auto;
 		width: 450px;
 	}
 	form > div {

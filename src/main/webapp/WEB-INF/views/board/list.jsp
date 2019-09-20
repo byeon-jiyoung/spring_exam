@@ -5,14 +5,14 @@
 
 <style>
 	#imgList {
-		width: 1000px;
+		width: 820px;
 		margin: 50px auto;
 		overflow: hidden;
 	}
 	.filelist {
 		float: left;
 		margin: 0 20px 10px 0;
-		width: 180px;
+		width: 250px;
 	}
 	.filelist p {
 		margin: 5px; 
@@ -23,6 +23,9 @@
 	}
 	.filelist .oriname {
 		display: inline-block;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	.filelist button {
 		float: right;
