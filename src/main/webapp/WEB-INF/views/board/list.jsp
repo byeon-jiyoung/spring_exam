@@ -19,7 +19,7 @@
 	}
 	.filelist img {
 		width: 100%;
-		height: 100px;
+		height: 200px;
 	}
 	.filelist .oriname {
 		display: inline-block;
@@ -76,9 +76,9 @@
 					<p><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${board.regdate}"/></p>
 					<img src="displayFile?filename=${board.file}" class="th_img" data-file="${board.file}">
 					<p class="oriname">${board.originfile}</p>
-					<c:if test="${board.writer == Auth.userid}">
+					<%-- <c:if test="${board.writer == Auth.userid}">
 						<button class="delBtn" data-bno="${board.bno}">삭제</button>
-					</c:if>
+					</c:if> --%>
 				</div>
 			</c:forEach>
 		</div>
@@ -122,7 +122,7 @@
 				})
 			})
 			
-			$(document).on("click", ".delBtn", function() {
+			/* $(document).on("click", ".delBtn", function() {
 				var result = confirm("삭제하시겠습니까?");
 				var bno = $(this).attr("data-bno");
 				var writer = "${Auth.userid}";
@@ -137,15 +137,6 @@
 							console.log(res);
 							
 							$("#imgList").empty();
-							
-							/* <div class="filelist">
-								<p><fmt:formatDate pattern="yyyy년 MM월 dd일" value="${board.regdate}"/></p>
-								<img src="displayFile?filename=${board.file}" class="th_img" data-file="${board.file}">
-								<p class="oriname">${board.originfile}</p>
-								<c:if test="${board.writer == Auth.userid}">
-									<button class="delBtn" data-bno="${board.bno}">삭제</button>
-								</c:if>
-							</div> */
 							
 							$(res).each(function(i, obj) {
 								var regdate = new Date(obj.regdate);
@@ -169,7 +160,7 @@
 				}else {
 					return false;
 				}
-			})
+			}) */
 		</script>
 	</section>
 </html>
